@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if (($EUID != 0))
+if (( $EUID != 0 ))
 then
 	echo "Run as root"
 	exit 1
@@ -13,38 +13,63 @@ mkdir ~/Downloads
 mkdir ~/Pictures
 mkdir ~/Videos
 
+cp ~/ArchConf/wallpapers/* ~/Pictures
+
 if [[ -d ~/.fonts ]]
 then
 	mkdir ~/.fonts
-	cp ~/.dotfiles/fonts/* ~/.fonts/
+	cp ~/ArchConf/fonts/* ~/.fonts/
 else
-	cp ~/.dotfiles/fonts/* ~/.fonts/
+	cp ~/ArchConf/fonts/* ~/.fonts/
 fi 
 
-git clone https://github.com/ohmybash/oh-my-bash.git ~/Downloads
+bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
 
-git clone https://github.com/fairyglade/ly.git ~/Downloads
+git clone https://aur.archlinux.org/paru.git ~/Downloads
+cd ~/Downloads/paru
+makepkg -si
 
-git clone https://github.com/junegunn/vim-plug.git ~/Downloads
 
-git clone https://github.com/Morganamilo/paru.git ~/Downloads
+pacman -S - < pkglist.txt
+
+cp ~/ArchConf/fehbg/.fehbg ~/
+
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 
 if [[ -d ~/.config/alacritty ]]
 then
 	mkdir ~/.config/alacritty
-	cp ~/.dotfiles/alacritty/alacritty.yml ~/.config/alacritty/
+	cp ~/ArchConf/alacritty/alacritty.yml ~/.config/alacritty/
 else
-	cp ~/.dotfiles/alacritty/alacritty.yml ~/,.config/alacritty
+	cp ~/ArchConf/alacritty/alacritty.yml ~/,.config/alacritty
 fi
-
 
 if [[ -d ~/.config/i3 ]]
 then
 	mkdir ~/.config/i3
-	cp ~/.dotfiles/i3/config ~/.config/alacritty/
+	cp ~/ArchConf/i3/config ~/.config/i3/
+	cp ~/ArchConf/i3/i3status.conf ~/.config/i3/
 else
-	cp ~/.dotfiles/alacritty/alacritty.yml ~/,.config/alacritty
+	cp ~/ArchConf/i3/config ~/.config/i3/
+	cp ~/ArchConf/i3/i3status.conf ~/.config/i3/
 fi
 
-pacman -S - < pkglist.txt
+if [[ -d ~/.config/nvim ]]
+then
+	mkdir ~/.config/nvim
+	cp ~/ArchConf/nvim/init.vim ~/.config/nvim/
+	nvim -c "PlugInstall"
+else
+	cp ~/ArchConf/nvim/init.vim ~/.config/nvim/
+	nvim -c "PlugInstall"
+fi
+
+if [[ -d ~/.config/picom ]]
+then
+	mkdir ~/.config/nvim
+	cp ~/ArchConf/picom/picom.conf ~/.config/picom/
+else
+	cp ~/ArchConf/picom/picom.conf ~/.config/picom/
+fi

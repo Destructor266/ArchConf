@@ -44,6 +44,7 @@ lightdm-webkit2-theme-glorious
 linux
 linux-firmware
 linux-headers
+ly
 m4
 make
 mariadb
