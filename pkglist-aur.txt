@@ -1,0 +1,11 @@
+libglade
+lightdm-webkit2-theme-glorious
+paru
+pygtk
+python2-cairo
+python2-dbus
+python2-distutils-extra
+python2-gobject2
+python2-numpy
+python2-pillow
+unityhub

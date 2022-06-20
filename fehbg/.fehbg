@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --no-fehbg --bg-fill '/home/manel/Pictures/guilty_gear.jpg' 
