@@ -26,11 +26,11 @@ git clone https://aur.archlinux.org/paru.git $HOME/Downloads/paru
 cd $HOME/Downloads/paru
 makepkg -si
 
-sudo pacman -S - < pkglist.txt
+sudo pacman -S - < $HOME/Downloads/ArchConf/pkglist.txt
 
 cp $HOME/ArchConf/fehbg/.fehbg $HOME/
 
-if [[ !-d $HOME/.config/alacritty ]]
+if ! [[ -d $HOME/.config/alacritty ]]
 then
 	mkdir $HOME/.config/alacritty
 	cp $HOME/Downloads/ArchConf/alacritty/alacritty.yml $HOME/.config/alacritty/
@@ -38,7 +38,7 @@ else
 	cp $HOME/Downloads/ArchConf/alacritty/alacritty.yml $HOME/.config/alacritty
 fi
 
-if [[ !-d $HOME/.config/i3 ]]
+if ! [[ -d $HOME/.config/i3 ]]
 then
 	mkdir $HOME/.config/i3
 	cp $HOME/Downloads/ArchConf/i3/config $HOME/.config/i3/
@@ -48,7 +48,7 @@ else
 	cp $HOME/Downloads/ArchConf/i3/i3status.conf $HOME/.config/i3/
 fi
 
-if [[ !-d $HOME/.config/nvim ]]
+if ! [[ -d $HOME/.config/nvim ]]
 then
 	mkdir $HOME/.config/nvim
 	cp $HOME/Downloads/ArchConf/nvim/init.vim $HOME/.config/nvim/
@@ -58,7 +58,7 @@ else
 	
 fi
 
-if [[ !-d $HOME/.config/picom ]]
+if ! [[ -d $HOME/.config/picom ]]
 then
 	mkdir $HOME/.config/nvim
 	cp $HOME/Downloads/ArchConf/picom/picom.conf $HOME/.config/picom/
