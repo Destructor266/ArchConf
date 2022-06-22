@@ -14,7 +14,7 @@ mkdir $HOME/Videos
 
 cp $HOME/ArchConf/Downloads/wallpapers/* $HOME/Pictures
 
-if [[ !-d $HOME/.fonts ]]
+if ! [[ -d $HOME/.fonts ]]
 then
 	mkdir $HOME/.fonts
 	cp $HOME/Downloads/ArchConf/fonts/* $HOME/.fonts/
