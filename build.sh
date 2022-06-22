@@ -1,10 +1,10 @@
 #!/bin/bash
 
-if (( $EUID != 0 ))
-then
-	echo "Run as root"
-	exit 1
-fi
+# if (( $EUID != 0 ))
+# then
+# 	echo "Run as root"
+# 	exit 1
+# fi
 
 
 mkdir $HOME/Desktop
@@ -26,7 +26,7 @@ git clone https://aur.archlinux.org/paru.git $HOME/Downloads
 cd $HOME/Downloads/paru
 makepkg -si
 
-pacman -S - < pkglist.txt
+sudo pacman -S - < pkglist.txt
 
 cp $HOME/ArchConf/fehbg/.fehbg $HOME/
 
