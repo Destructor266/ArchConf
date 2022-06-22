@@ -12,7 +12,7 @@ mkdir $HOME/Documents
 mkdir $HOME/Pictures
 mkdir $HOME/Videos
 
-cp $HOME/ArchConf/Downloads/wallpapers/* $HOME/Pictures
+cp $HOME/Downloads/ArchConf/wallpapers/* $HOME/Pictures
 
 if ! [[ -d $HOME/.fonts ]]
 then
@@ -22,7 +22,7 @@ else
 	cp $HOME/Downloads/ArchConf/fonts/* $HOME/.fonts/
 fi 
 
-git clone https://aur.archlinux.org/paru.git $HOME/Downloads
+git clone https://aur.archlinux.org/paru.git $HOME/Downloads/paru
 cd $HOME/Downloads/paru
 makepkg -si
 
