@@ -22,13 +22,17 @@ else
 	cp $HOME/Downloads/ArchConf/fonts/* $HOME/.fonts/
 fi 
 
+sudo pacman -S -needed base-devel
+
 git clone https://aur.archlinux.org/paru.git $HOME/Downloads/paru
 cd $HOME/Downloads/paru
 makepkg -si
 
 sudo pacman -S - < $HOME/Downloads/ArchConf/pkglist.txt
 
-cp $HOME/ArchConf/fehbg/.fehbg $HOME/
+cp $HOME/Downloads/ArchConf/fehbg/.fehbg $HOME/
+
+cd $HOME/.config
 
 if ! [[ -d $HOME/.config/alacritty ]]
 then
