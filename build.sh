@@ -7,65 +7,65 @@ then
 fi
 
 
-mkdir ~/Desktop
-mkdir ~/Documents
-mkdir ~/Pictures
-mkdir ~/Videos
+mkdir $HOME/Desktop
+mkdir $HOME/Documents
+mkdir $HOME/Pictures
+mkdir $HOME/Videos
 
-cp ~/ArchConf/wallpapers/* ~/Pictures
+cp $HOME/ArchConf/wallpapers/* $HOME/Pictures
 
-if [[ -d ~/.fonts ]]
+if [[ -d $HOME/.fonts ]]
 then
-	mkdir ~/.fonts
-	cp ~/Downloads/ArchConf/fonts/* ~/.fonts/
+	mkdir $HOME/.fonts
+	cp $HOME/Downloads/ArchConf/fonts/* $HOME/.fonts/
 else
-	cp ~/Downloads/ArchConf/fonts/* ~/.fonts/
+	cp $HOME/Downloads/ArchConf/fonts/* $HOME/.fonts/
 fi 
 
 pacman -S - < pkglist.txt
 
-git clone https://aur.archlinux.org/paru.git ~/Downloads
-cd ~/Downloads/paru
+git clone https://aur.archlinux.org/paru.git $HOME/Downloads
+cd $HOME/Downloads/paru
 makepkg -si
 
-cp ~/ArchConf/fehbg/.fehbg ~/
+cp $HOME/ArchConf/fehbg/.fehbg $HOME/
 
 
 
-if [[ -d ~/.config/alacritty ]]
+if [[ -d $HOME/.config/alacritty ]]
 then
-	mkdir ~/.config/alacritty
-	cp ~/Downloads/ArchConf/alacritty/alacritty.yml ~/.config/alacritty/
+	mkdir $HOME/.config/alacritty
+	cp $HOME/Downloads/ArchConf/alacritty/alacritty.yml $HOME/.config/alacritty/
 else
-	cp ~/Downloads/ArchConf/alacritty/alacritty.yml ~/,.config/alacritty
+	cp $HOME/Downloads/ArchConf/alacritty/alacritty.yml $HOME/,.config/alacritty
 fi
 
-if [[ -d ~/.config/i3 ]]
+if [[ -d $HOME/.config/i3 ]]
 then
-	mkdir ~/.config/i3
-	cp ~/Downloads/ArchConf/i3/config ~/.config/i3/
-	cp ~/Downloads/ArchConf/i3/i3status.conf ~/.config/i3/
+	mkdir $HOME/.config/i3
+	cp $HOME/Downloads/ArchConf/i3/config $HOME/.config/i3/
+	cp $HOME/Downloads/ArchConf/i3/i3status.conf $HOME/.config/i3/
 else
-	cp ~/Downloads/ArchConf/i3/config ~/.config/i3/
-	cp ~/Downloads/ArchConf/i3/i3status.conf ~/.config/i3/
+	cp $HOME/Downloads/ArchConf/i3/config $HOME/.config/i3/
+	cp $HOME/Downloads/ArchConf/i3/i3status.conf $HOME/.config/i3/
 fi
 
-if [[ -d ~/.config/nvim ]]
+if [[ -d $HOME/.config/nvim ]]
 then
-	mkdir ~/.config/nvim
-	cp ~/Downloads/ArchConf/nvim/init.vim ~/.config/nvim/
+	mkdir $HOME/.config/nvim
+	cp $HOME/Downloads/ArchConf/nvim/init.vim $HOME/.config/nvim/
 	nvim -c "PlugInstall"
 else
-	cp ~/ArchConf/nvim/init.vim ~/.config/nvim/
+	cp $HOME/ArchConf/nvim/init.vim $HOME/.config/nvim/
 	
 fi
 
-if [[ -d ~/.config/picom ]]
+if [[ -d $HOME/.config/picom ]]
 then
-	mkdir ~/.config/nvim
-	cp ~/Downloads/ArchConf/picom/picom.conf ~/.config/picom/
+	mkdir $HOME/.config/nvim
+	cp $HOME/Downloads/ArchConf/picom/picom.conf $HOME/.config/picom/
 else
-	cp ~/Downloads/ArchConf/picom/picom.conf ~/.config/picom/
+	cp $HOME/Downloads/ArchConf/picom/picom.conf $HOME/.config/picom/
 fi
 
 
