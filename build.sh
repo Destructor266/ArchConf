@@ -22,15 +22,13 @@ else
 	cp $HOME/Downloads/ArchConf/fonts/* $HOME/.fonts/
 fi 
 
-pacman -S - < pkglist.txt
-
 git clone https://aur.archlinux.org/paru.git $HOME/Downloads
 cd $HOME/Downloads/paru
 makepkg -si
 
+pacman -S - < pkglist.txt
+
 cp $HOME/ArchConf/fehbg/.fehbg $HOME/
-
-
 
 if [[ -d $HOME/.config/alacritty ]]
 then
