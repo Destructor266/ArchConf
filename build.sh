@@ -28,13 +28,8 @@ git clone https://aur.archlinux.org/paru.git ~/Downloads
 cd ~/Downloads/paru
 makepkg -si
 
-bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
-
-
 cp ~/ArchConf/fehbg/.fehbg ~/
 
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 
 if [[ -d ~/.config/alacritty ]]
@@ -62,7 +57,7 @@ then
 	nvim -c "PlugInstall"
 else
 	cp ~/ArchConf/nvim/init.vim ~/.config/nvim/
-	nvim -c "PlugInstall"
+	
 fi
 
 if [[ -d ~/.config/picom ]]
@@ -72,3 +67,12 @@ then
 else
 	cp ~/Downloads/ArchConf/picom/picom.conf ~/.config/picom/
 fi
+
+
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+nvim -c "PlugInstall"
+
+
+bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
