@@ -12,14 +12,14 @@ mkdir $HOME/Documents
 mkdir $HOME/Pictures
 mkdir $HOME/Videos
 
-cp $PWD/ArchConf/wallpapers/* $HOME/Pictures
+cp $PWD/wallpapers/* $HOME/Pictures
 
 if ! [[ -d $PWD/.fonts ]]
 then
 	mkdir $PWD/.fonts
-	cp $PWD/ArchConf/fonts/* $HOME/.fonts/
+	cp $PWD/fonts/* $HOME/.fonts/
 else
-	cp $PWD/ArchConf/fonts/* $HOME/.fonts/
+	cp $PWD/fonts/* $HOME/.fonts/
 fi 
 
 sudo pacman -S --needed base-devel
@@ -30,44 +30,44 @@ makepkg -si
 
 sudo pacman -S - < $HOME/ArchConf/pkglist.txt
 
-cp $PWD/ArchConf/fehbg/.fehbg $HOME
+cp $PWD/fehbg/.fehbg $HOME
 
 cd $PWD/.config
 
 if ! [[ -d $PWD/.config/alacritty ]]
 then
 	mkdir $PWD/.config/alacritty
-	cp $PWD/ArchConf/alacritty/alacritty.yml $HOME/.config/alacritty/
+	cp $PWD/alacritty/alacritty.yml $HOME/.config/alacritty/
 else
-	cp $PWD/ArchConf/alacritty/alacritty.yml $HOME/.config/alacritty
+	cp $PWD/alacritty/alacritty.yml $HOME/.config/alacritty
 fi
 
 if ! [[ -d $PWD/.config/i3 ]]
 then
 	mkdir $PWD/.config/i3
-	cp $PWD/ArchConf/i3/config $HOME/.config/i3/
-	cp $PWD/ArchConf/i3/i3status.conf $HOME/.config/i3/
+	cp $PWD/i3/config $HOME/.config/i3/
+	cp $PWD/i3/i3status.conf $HOME/.config/i3/
 else
-	cp $PWD/ArchConf/i3/config $HOME/.config/i3/
-	cp $PWD/ArchConf/i3/i3status.conf $HOME/.config/i3/
+	cp $PWD/i3/config $HOME/.config/i3/
+	cp $PWD/i3/i3status.conf $HOME/.config/i3/
 fi
 
 if ! [[ -d $PWD/.config/nvim ]]
 then
 	mkdir $PWD/.config/nvim
-	cp $PWD/ArchConf/nvim/init.vim $HOME/.config/nvim/
-	nvim -c "PlugInstall"
+	cp $PWD/nvim/init.vim $HOME/.config/nvim/
+	#nvim -c "PlugInstall"
 else
-	cp $PWD/ArchConf/nvim/init.vim $HOME/.config/nvim/
+	cp $PWD/nvim/init.vim $HOME/.config/nvim/
 	
 fi
 
 if ! [[ -d $PWD/.config/picom ]]
 then
 	mkdir $PWD/.config/nvim
-	cp $PWD/ArchConf/picom/picom.conf $HOME/.config/picom/
+	cp $PWD/picom/picom.conf $HOME/.config/picom/
 else
-	cp $PWD/ArchConf/picom/picom.conf $HOME/.config/picom/
+	cp $PWD/picom/picom.conf $HOME/.config/picom/
 fi
 
 
