@@ -11,6 +11,7 @@ mkdir $HOME/Desktop
 mkdir $HOME/Documents
 mkdir $HOME/Pictures
 mkdir $HOME/Videos
+mkdir $HOME/Downloads
 
 cp $PWD/wallpapers/* $HOME/Pictures
 
@@ -24,8 +25,8 @@ fi
 
 sudo pacman -S --needed base-devel
 
-git clone https://aur.archlinux.org/paru.git $HOME/paru
-cd $PWD/paru
+git clone https://aur.archlinux.org/paru.git $HOME/Downloads/paru
+cd $HOME/Downloads/paru
 makepkg -si
 
 sudo pacman -S - < $HOME/ArchConf/pkglist.txt
