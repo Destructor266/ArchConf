@@ -14,9 +14,9 @@ mkdir $HOME/Videos
 
 cp $PWD/wallpapers/* $HOME/Pictures
 
-if ! [[ -d $PWD/.fonts ]]
+if ! [[ -d $HOME/.fonts ]]
 then
-	mkdir $PWD/.fonts
+	mkdir $HOME/.fonts
 	cp $PWD/fonts/* $HOME/.fonts/
 else
 	cp $PWD/fonts/* $HOME/.fonts/
@@ -34,17 +34,17 @@ cp $PWD/fehbg/.fehbg $HOME
 
 cd $PWD/.config
 
-if ! [[ -d $PWD/.config/alacritty ]]
+if ! [[ -d $HOME/.config/alacritty ]]
 then
-	mkdir $PWD/.config/alacritty
+	mkdir $HOME/.config/alacritty
 	cp $PWD/alacritty/alacritty.yml $HOME/.config/alacritty/
 else
 	cp $PWD/alacritty/alacritty.yml $HOME/.config/alacritty
 fi
 
-if ! [[ -d $PWD/.config/i3 ]]
+if ! [[ -d $HOME/.config/i3 ]]
 then
-	mkdir $PWD/.config/i3
+	mkdir $HOME/.config/i3
 	cp $PWD/i3/config $HOME/.config/i3/
 	cp $PWD/i3/i3status.conf $HOME/.config/i3/
 else
@@ -52,9 +52,9 @@ else
 	cp $PWD/i3/i3status.conf $HOME/.config/i3/
 fi
 
-if ! [[ -d $PWD/.config/nvim ]]
+if ! [[ -d $HOME/.config/nvim ]]
 then
-	mkdir $PWD/.config/nvim
+	mkdir $HOME/.config/nvim
 	cp $PWD/nvim/init.vim $HOME/.config/nvim/
 	#nvim -c "PlugInstall"
 else
@@ -62,9 +62,9 @@ else
 	
 fi
 
-if ! [[ -d $PWD/.config/picom ]]
+if ! [[ -d $HOME/.config/picom ]]
 then
-	mkdir $PWD/.config/nvim
+	mkdir $HOME/.config/nvim
 	cp $PWD/picom/picom.conf $HOME/.config/picom/
 else
 	cp $PWD/picom/picom.conf $HOME/.config/picom/
