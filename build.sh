@@ -7,28 +7,28 @@
 # fi
 
 
-mkdir $PWD/Desktop
-mkdir $PWD/Documents
-mkdir $PWD/Pictures
-mkdir $PWD/Videos
+mkdir $HOME/Desktop
+mkdir $HOME/Documents
+mkdir $HOME/Pictures
+mkdir $HOME/Videos
 
-cp $PWD/Downloads/ArchConf/wallpapers/* $PWD/Pictures
+cp $PWD/Downloads/ArchConf/wallpapers/* $HOME/Pictures
 
 if ! [[ -d $PWD/.fonts ]]
 then
 	mkdir $PWD/.fonts
-	cp $PWD/Downloads/ArchConf/fonts/* $PWD/.fonts/
+	cp $PWD/Downloads/ArchConf/fonts/* $HOME/.fonts/
 else
-	cp $PWD/Downloads/ArchConf/fonts/* $PWD/.fonts/
+	cp $PWD/Downloads/ArchConf/fonts/* $HOME/.fonts/
 fi 
 
 sudo pacman -S --needed base-devel
 
-git clone https://aur.archlinux.org/paru.git $PWD/Downloads/paru
+git clone https://aur.archlinux.org/paru.git $HOME/Downloads/paru
 cd $PWD/Downloads/paru
 makepkg -si
 
-sudo pacman -S - < $PWD/Downloads/ArchConf/pkglist.txt
+sudo pacman -S - < $HOME/Downloads/ArchConf/pkglist.txt
 
 cp $PWD/Downloads/ArchConf/fehbg/.fehbg $HOME
 
