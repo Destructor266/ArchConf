@@ -35,40 +35,42 @@ cp $PWD/fehbg/.fehbg $HOME
 
 cd $PWD/.config
 
+cd 
+
 if ! [[ -d $HOME/.config/alacritty ]]
 then
 	mkdir $HOME/.config/alacritty
-	cp $PWD/alacritty/alacritty.yml $HOME/.config/alacritty/
+	cp $HOME/ArchConf/alacritty/alacritty.yml $HOME/.config/alacritty/
 else
-	cp $PWD/alacritty/alacritty.yml $HOME/.config/alacritty
+	cp $HOME/ArchConf/alacritty/alacritty.yml $HOME/.config/alacritty
 fi
 
 if ! [[ -d $HOME/.config/i3 ]]
 then
 	mkdir $HOME/.config/i3
-	cp $PWD/i3/config $HOME/.config/i3/
-	cp $PWD/i3/i3status.conf $HOME/.config/i3/
+	cp $HOME/ArchConf/i3/config $HOME/.config/i3/
+	cp $HOME/ArchConf/i3/i3status.conf $HOME/.config/i3/
 else
-	cp $PWD/i3/config $HOME/.config/i3/
-	cp $PWD/i3/i3status.conf $HOME/.config/i3/
+	cp $HOME/ArchConf/i3/config $HOME/.config/i3/
+	cp $HOME/ArchConf/i3/i3status.conf $HOME/.config/i3/
 fi
 
 if ! [[ -d $HOME/.config/nvim ]]
 then
 	mkdir $HOME/.config/nvim
-	cp $PWD/nvim/init.vim $HOME/.config/nvim/
+	cp $HOME/ArchConf/nvim/init.vim $HOME/.config/nvim/
 	#nvim -c "PlugInstall"
 else
-	cp $PWD/nvim/init.vim $HOME/.config/nvim/
+	cp $HOME/ArchConf/nvim/init.vim $HOME/.config/nvim/
 	
 fi
 
 if ! [[ -d $HOME/.config/picom ]]
 then
 	mkdir $HOME/.config/nvim
-	cp $PWD/picom/picom.conf $HOME/.config/picom/
+	cp $HOME/ArchConf/picom/picom.conf $HOME/.config/picom/
 else
-	cp $PWD/picom/picom.conf $HOME/.config/picom/
+	cp $HOME/ArchConf/picom/picom.conf $HOME/.config/picom/
 fi
 
 
