@@ -12,50 +12,50 @@ mkdir $HOME/Documents
 mkdir $HOME/Pictures
 mkdir $HOME/Videos
 
-cp $PWD/Downloads/ArchConf/wallpapers/* $HOME/Pictures
+cp $PWD/ArchConf/wallpapers/* $HOME/Pictures
 
 if ! [[ -d $PWD/.fonts ]]
 then
 	mkdir $PWD/.fonts
-	cp $PWD/Downloads/ArchConf/fonts/* $HOME/.fonts/
+	cp $PWD/ArchConf/fonts/* $HOME/.fonts/
 else
-	cp $PWD/Downloads/ArchConf/fonts/* $HOME/.fonts/
+	cp $PWD/ArchConf/fonts/* $HOME/.fonts/
 fi 
 
 sudo pacman -S --needed base-devel
 
-git clone https://aur.archlinux.org/paru.git $HOME/Downloads/paru
-cd $PWD/Downloads/paru
+git clone https://aur.archlinux.org/paru.git $HOME/paru
+cd $PWD/paru
 makepkg -si
 
-sudo pacman -S - < $HOME/Downloads/ArchConf/pkglist.txt
+sudo pacman -S - < $HOME/ArchConf/pkglist.txt
 
-cp $PWD/Downloads/ArchConf/fehbg/.fehbg $HOME
+cp $PWD/ArchConf/fehbg/.fehbg $HOME
 
 cd $PWD/.config
 
 if ! [[ -d $PWD/.config/alacritty ]]
 then
 	mkdir $PWD/.config/alacritty
-	cp $PWD/Downloads/ArchConf/alacritty/alacritty.yml $HOME/.config/alacritty/
+	cp $PWD/ArchConf/alacritty/alacritty.yml $HOME/.config/alacritty/
 else
-	cp $PWD/Downloads/ArchConf/alacritty/alacritty.yml $HOME/.config/alacritty
+	cp $PWD/ArchConf/alacritty/alacritty.yml $HOME/.config/alacritty
 fi
 
 if ! [[ -d $PWD/.config/i3 ]]
 then
 	mkdir $PWD/.config/i3
-	cp $PWD/Downloads/ArchConf/i3/config $HOME/.config/i3/
-	cp $PWD/Downloads/ArchConf/i3/i3status.conf $HOME/.config/i3/
+	cp $PWD/ArchConf/i3/config $HOME/.config/i3/
+	cp $PWD/ArchConf/i3/i3status.conf $HOME/.config/i3/
 else
-	cp $PWD/Downloads/ArchConf/i3/config $HOME/.config/i3/
-	cp $PWD/Downloads/ArchConf/i3/i3status.conf $HOME/.config/i3/
+	cp $PWD/ArchConf/i3/config $HOME/.config/i3/
+	cp $PWD/ArchConf/i3/i3status.conf $HOME/.config/i3/
 fi
 
 if ! [[ -d $PWD/.config/nvim ]]
 then
 	mkdir $PWD/.config/nvim
-	cp $PWD/Downloads/ArchConf/nvim/init.vim $HOME/.config/nvim/
+	cp $PWD/ArchConf/nvim/init.vim $HOME/.config/nvim/
 	nvim -c "PlugInstall"
 else
 	cp $PWD/ArchConf/nvim/init.vim $HOME/.config/nvim/
@@ -65,9 +65,9 @@ fi
 if ! [[ -d $PWD/.config/picom ]]
 then
 	mkdir $PWD/.config/nvim
-	cp $PWD/Downloads/ArchConf/picom/picom.conf $HOME/.config/picom/
+	cp $PWD/ArchConf/picom/picom.conf $HOME/.config/picom/
 else
-	cp $PWD/Downloads/ArchConf/picom/picom.conf $HOME/.config/picom/
+	cp $PWD/ArchConf/picom/picom.conf $HOME/.config/picom/
 fi
 
 
