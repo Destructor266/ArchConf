@@ -7,71 +7,71 @@
 # fi
 
 
-mkdir $HOME/Desktop
-mkdir $HOME/Documents
-mkdir $HOME/Pictures
-mkdir $HOME/Videos
+mkdir $PWD/Desktop
+mkdir $PWD/Documents
+mkdir $PWD/Pictures
+mkdir $PWD/Videos
 
-cp $HOME/Downloads/ArchConf/wallpapers/* $HOME/Pictures
+cp $PWD/Downloads/ArchConf/wallpapers/* $PWD/Pictures
 
-if ! [[ -d $HOME/.fonts ]]
+if ! [[ -d $PWD/.fonts ]]
 then
-	mkdir $HOME/.fonts
-	cp $HOME/Downloads/ArchConf/fonts/* $HOME/.fonts/
+	mkdir $PWD/.fonts
+	cp $PWD/Downloads/ArchConf/fonts/* $PWD/.fonts/
 else
-	cp $HOME/Downloads/ArchConf/fonts/* $HOME/.fonts/
+	cp $PWD/Downloads/ArchConf/fonts/* $PWD/.fonts/
 fi 
 
 sudo pacman -S --needed base-devel
 
-git clone https://aur.archlinux.org/paru.git $HOME/Downloads/paru
-cd $HOME/Downloads/paru
+git clone https://aur.archlinux.org/paru.git $PWD/Downloads/paru
+cd $PWD/Downloads/paru
 makepkg -si
 
-sudo pacman -S - < $HOME/Downloads/ArchConf/pkglist.txt
+sudo pacman -S - < $PWD/Downloads/ArchConf/pkglist.txt
 
-cp $HOME/Downloads/ArchConf/fehbg/.fehbg $HOME/
+cp $PWD/Downloads/ArchConf/fehbg/.fehbg $PWD/
 
-cd $HOME/.config
+cd $PWD/.config
 
-if ! [[ -d $HOME/.config/alacritty ]]
+if ! [[ -d $PWD/.config/alacritty ]]
 then
-	mkdir $HOME/.config/alacritty
-	cp $HOME/Downloads/ArchConf/alacritty/alacritty.yml $HOME/.config/alacritty/
+	mkdir $PWD/.config/alacritty
+	cp $PWD/Downloads/ArchConf/alacritty/alacritty.yml $PWD/.config/alacritty/
 else
-	cp $HOME/Downloads/ArchConf/alacritty/alacritty.yml $HOME/.config/alacritty
+	cp $PWD/Downloads/ArchConf/alacritty/alacritty.yml $PWD/.config/alacritty
 fi
 
-if ! [[ -d $HOME/.config/i3 ]]
+if ! [[ -d $PWD/.config/i3 ]]
 then
-	mkdir $HOME/.config/i3
-	cp $HOME/Downloads/ArchConf/i3/config $HOME/.config/i3/
-	cp $HOME/Downloads/ArchConf/i3/i3status.conf $HOME/.config/i3/
+	mkdir $PWD/.config/i3
+	cp $PWD/Downloads/ArchConf/i3/config $PWD/.config/i3/
+	cp $PWD/Downloads/ArchConf/i3/i3status.conf $PWD/.config/i3/
 else
-	cp $HOME/Downloads/ArchConf/i3/config $HOME/.config/i3/
-	cp $HOME/Downloads/ArchConf/i3/i3status.conf $HOME/.config/i3/
+	cp $PWD/Downloads/ArchConf/i3/config $PWD/.config/i3/
+	cp $PWD/Downloads/ArchConf/i3/i3status.conf $PWD/.config/i3/
 fi
 
-if ! [[ -d $HOME/.config/nvim ]]
+if ! [[ -d $PWD/.config/nvim ]]
 then
-	mkdir $HOME/.config/nvim
-	cp $HOME/Downloads/ArchConf/nvim/init.vim $HOME/.config/nvim/
+	mkdir $PWD/.config/nvim
+	cp $PWD/Downloads/ArchConf/nvim/init.vim $PWD/.config/nvim/
 	nvim -c "PlugInstall"
 else
-	cp $HOME/ArchConf/nvim/init.vim $HOME/.config/nvim/
+	cp $PWD/ArchConf/nvim/init.vim $PWD/.config/nvim/
 	
 fi
 
-if ! [[ -d $HOME/.config/picom ]]
+if ! [[ -d $PWD/.config/picom ]]
 then
-	mkdir $HOME/.config/nvim
-	cp $HOME/Downloads/ArchConf/picom/picom.conf $HOME/.config/picom/
+	mkdir $PWD/.config/nvim
+	cp $PWD/Downloads/ArchConf/picom/picom.conf $PWD/.config/picom/
 else
-	cp $HOME/Downloads/ArchConf/picom/picom.conf $HOME/.config/picom/
+	cp $PWD/Downloads/ArchConf/picom/picom.conf $PWD/.config/picom/
 fi
 
 
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$PWD/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 nvim -c "PlugInstall"
