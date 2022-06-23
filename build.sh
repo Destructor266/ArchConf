@@ -29,7 +29,7 @@ git clone https://aur.archlinux.org/paru.git $HOME/Downloads/paru
 cd $HOME/Downloads/paru
 makepkg -si
 
-sudo pacman -S - < $HOME/ArchConf/pkglist.txt
+pacman -S --needed - < $HOME/ArchConf/pkglist.txt
 
 cp $PWD/fehbg/.fehbg $HOME
 
