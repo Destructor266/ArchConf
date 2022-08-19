@@ -37,7 +37,7 @@ makepkg -si
 
 echo "Paru Installed"
 
-pacman -S --needed - < $HOME/ArchConf/pkglist.txt
+pacman -S --needed - < $(cat $HOME/ArchConf/pkglist.txt)
 
 echo "Packages Installed"
 
