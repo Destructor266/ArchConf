@@ -13,14 +13,20 @@ mkdir $HOME/Pictures
 mkdir $HOME/Videos
 mkdir $HOME/Downloads
 
+echo "Directorys created"
+
 cp $PWD/wallpapers/* $HOME/Pictures
+
+echo "Wallpapers Copied"
 
 if ! [[ -d $HOME/.fonts ]]
 then
 	mkdir $HOME/.fonts
 	cp $PWD/fonts/* $HOME/.fonts/
+	echo "Fonts copied"
 else
 	cp $PWD/fonts/* $HOME/.fonts/
+	echo "Fonts copied"
 fi 
 
 #sudo pacman -S --needed base-devel
@@ -29,13 +35,17 @@ git clone https://aur.archlinux.org/paru.git $HOME/Downloads/paru
 cd $HOME/Downloads/paru
 makepkg -si
 
+echo "Paru Installed"
+
 pacman -S --needed - < $HOME/ArchConf/pkglist.txt
+
+echo "Packages Installed"
 
 cp $PWD/fehbg/.fehbg $HOME
 
-cd $PWD/.config
+echo "fehbg conf copied"
 
-cd 
+cd $PWD/.config
 
 if ! [[ -d $HOME/.config/alacritty ]]
 then
@@ -73,6 +83,7 @@ else
 	cp $HOME/ArchConf/picom/picom.conf $HOME/.config/picom/
 fi
 
+echo "conf files copied"
 
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$PWD/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
