@@ -12,6 +12,7 @@ then
 	exit 1
 else
 	echo "Directories created"
+fi
 
 cp $PWD/wallpapers/* $HOME/Pictures
 
@@ -21,6 +22,7 @@ then
 	exit 1
 else
 	echo "Wallpapers copied"
+fi
 
 if ! [[ -d $HOME/.fonts ]]
 then
