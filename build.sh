@@ -1,50 +1,66 @@
 #!/bin/bash
 
-# if (( $EUID != 0 ))
-# then
-# 	echo "Run as root"
-# 	exit 1
-# fi
-
-
 mkdir $HOME/Desktop
 mkdir $HOME/Documents
 mkdir $HOME/Pictures
 mkdir $HOME/Videos
 mkdir $HOME/Downloads
 
-echo "Directorys created"
+if [[ $? != 0 ]]
+then
+	echo "Directories not created"
+	exit 1
+else
+	echo "Directories created"
 
 cp $PWD/wallpapers/* $HOME/Pictures
 
-echo "Wallpapers Copied"
+if [[ $? != 0 ]]
+then
+	echo "Wallpapers not copied"
+	exit 1
+else
+	echo "Wallpapers copied"
 
 if ! [[ -d $HOME/.fonts ]]
 then
 	mkdir $HOME/.fonts
 	cp $PWD/fonts/* $HOME/.fonts/
-	echo "Fonts copied"
+	if [[ $? != 0 ]]
+	then
+		echo "Fonts not copied"
+		exit 1
+	else
+		echo "Fonts copied"
+	fi
 else
 	cp $PWD/fonts/* $HOME/.fonts/
+	if [[ $? != 0 ]]
+then
+	echo "Fonts not copied"
+	exit 1
+else
 	echo "Fonts copied"
 fi 
-
-#sudo pacman -S --needed base-devel
 
 git clone https://aur.archlinux.org/paru.git $HOME/Downloads/paru
 cd $HOME/Downloads/paru
 makepkg -si
 
-echo "Paru Installed"
+if [[ $? != 0 ]]
+then
+	echo "Paru not installed"
+	exit 1
+else
+	echo "Paru installed"
 
+sudo pacman --needed --ask 4 -Sy - < pkglist.txt
 
-
-while read line
-do
-	sudo pacman -S $line 
-done < pkglist.txt
-
-echo "Packages Installed"
+if [[ $? != 0 ]]
+then
+	echo "Packages not installed"
+else
+	echo "Packages installed"
 
 cp $PWD/fehbg/.fehbg $HOME
 
