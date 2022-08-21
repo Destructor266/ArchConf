@@ -53,6 +53,7 @@ then
 	exit 1
 else
 	echo "Paru installed"
+fi
 
 sudo pacman --needed --ask 4 -Sy - < pkglist.txt
 
@@ -61,6 +62,7 @@ then
 	echo "Packages not installed"
 else
 	echo "Packages installed"
+fi
 
 cp $PWD/fehbg/.fehbg $HOME
 
