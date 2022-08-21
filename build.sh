@@ -28,22 +28,9 @@ if ! [[ -d $HOME/.fonts ]]
 then
 	mkdir $HOME/.fonts
 	cp $PWD/fonts/* $HOME/.fonts/
-	if [[ $? != 0 ]]
-	then
-		echo "Fonts not copied"
-		exit 1
-	else
-		echo "Fonts copied"
-	fi
 else
 	cp $PWD/fonts/* $HOME/.fonts/
-	if [[ $? != 0 ]]
-	then
-		echo "Fonts not copied"
-		exit 1
-	else
-		echo "Fonts copied"
-	fi 
+fi 
 
 git clone https://aur.archlinux.org/paru.git $HOME/Downloads/paru
 cd $HOME/Downloads/paru
